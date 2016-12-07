@@ -8,7 +8,8 @@ http://www.w3schools.com/js/js_objects.asp
 <html>
 	
 	<body>
-		<button type="button" onclick="myObjectFun();">Print list of cars</button>
+		<button type="button" onclick="sortName();">Print list of classes by prefix</button>
+		<button type="button" onclick="sortNumber();">Print list of classes by number</button>
 
 		<script>
 			function myObjectFun() {
@@ -18,7 +19,7 @@ http://www.w3schools.com/js/js_objects.asp
 					type:"Fiat", 
 					model:"500", 
 					color:"white",
-					odometer: function (x){console.log(x);;;;;;;;;;}
+					odometer: function (x){console.log(x);}
 				};
 				var car2 = {
 					type:"Chevy", 
@@ -64,6 +65,71 @@ http://www.w3schools.com/js/js_objects.asp
 			}
 			
 			// create an object that contains the prefixes and courseNumbers of 10 cs, cis, math and phil courses and write two functions; one to alphabetize the courses (second level sort is courseNumber) and the other to put in numerical order (second level sort is prefix) 
+			var course = [];
+				course[0] = {prefix:"cs", number:"105"};
+				course[1] = {prefix:"cs", number:"116"};
+				course[2] = {prefix:"cs", number:"216"};
+				course[3] = {prefix:"cs", number:"316"};
+				course[4] = {prefix:"cs", number:"411"};
+				course[5] = {prefix:"cis", number:"255"};
+				course[6] = {prefix:"cis", number:"355"};
+				course[7] = {prefix:"math", number:"105"};
+				course[8] = {prefix:"math", number:"300"};
+				course[9] = {prefix:"phil", number:"200"};
+			
+			function sortName() {
+				for (var x = 0; x < course.length; x++){
+					for (var y = 0; y < course.length - 1; y++){
+						if (course[y].prefix == course[y + 1].prefix){
+							if (course[y].number > course[y + 1].number) {
+								hold = course[y];
+								course[y] = course[y + 1];
+								course[y + 1] = hold;
+							}
+						}
+						else {
+							if (course[y].prefix > course[y + 1].prefix) {
+								hold = course[y];
+								course[y] = course[y + 1];
+								course[y + 1] = hold;
+							}
+						}
+					}
+				}
+				
+				for (var i = 0; i < course.length; i++) {
+					document.write(course[i].prefix + " " + course[i].number + "<br />");
+				}
+				document.write("<br/>");
+				document.write("Reload page to sort list again");
+			}
+			
+			function sortNumber() {
+				for (var x = 0; x < course.length; x++){
+					for (var y = 0; y < course.length - 1; y++){
+						if (course[y].number == course[y + 1].number){
+							if (course[y].prefix > course[y + 1].prefix) {
+								hold = course[y];
+								course[y] = course[y + 1];
+								course[y + 1] = hold;
+							}
+						}
+						else {
+							if (course[y].number > course[y + 1].number) {
+								hold = course[y];
+								course[y] = course[y + 1];
+								course[y + 1] = hold;
+							}
+						}
+					}
+				}
+				
+				for (var i = 0; i < course.length; i++) {
+					document.write(course[i].number + " " + course[i].prefix + "<br />");
+				}
+				document.write("<br/>");
+				document.write("Reload page to sort list again");
+			}
 			
 		</script>
 		

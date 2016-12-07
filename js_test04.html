@@ -6,16 +6,28 @@
 	
 	<body>
 	
-		<p id="zippy" onClick="myAlert();">this is a paragraph.</p>
+		<button onClick="myAlert()">Push for Alert</button>
+		<button onclick="myFunctionC()">Push for confirm</button>
+		<button onclick="myFunctionP()">Push for prompt</button>
+		<button onclick="notNum()">Push for is not a number</button>
+		<button onclick="ceiling()">Push for ceiling</button>
+		<button onclick="floor()">Push for floor</button>
+		<button onclick="max()">Push for max</button>
+		<button onclick="min()">Push for min</button>
+		<button onclick="pow()">Push for powers</button>
+		<button onclick="roundUp()">Push for round</button>
+		<button onclick="square()">Push for sqaure root</button>
+		
 
 		<script>
 		
 			// test built-in functions, esp. alert(), confirm(), prompt()
 			
-			// test Math functions, including inNaN(), Math.abs(), Math.ceil(), Math.floor(), Math.max(), Math.min(), Math.pow(), Math.round(), Math.abs(), Math.sqrt()
+			// test Math functions, including isNaN(), Math.abs(), Math.ceil(), Math.floor(), Math.max()
+			// Math.min(), Math.pow(), Math.round(), Math.sqrt()
 			
 			var x = 5;
-			document.write(typeof(x));
+			document.write("<br/>" + typeof(x));
 			console.log(x);
 			
 			var pi = Math.PI;
@@ -27,12 +39,79 @@
 				alert("this is just an alert.");
 			}
 			
+			// confirm()
+			function myFunctionC() {
+				confirm("Press a button!");
+			}
+			
+			// prompt()
+			function myFunctionP() {
+				 var person = prompt("Please enter your name", "Harry Potter");
+				if (person != null) {
+					alert("Hello " + person + "!");
+				}
+			}
+			
+			// inNaN()
+			function notNum() {
+				var num = prompt("Please enter a number");
+				if (isNaN(num) ==  false)
+				alert("Your input is a number");
+				else
+				alert("Your input is not a number");
+			}
+			
 			// Math.abs()
 			var a = -25;
 			var b = 25;
 			if (Math.abs(a) == Math.abs(b)) 
 				document.write("<br />values a and b have same absolute value");
-
+			
+			// Math.ceil()
+			function ceiling(){
+				var num = prompt("Please enter a number with a decimal point");
+				alert("Your number rounded up is " + Math.ceil(num));
+			}
+			
+			// Math.floor()
+			function floor() {
+				var num = prompt("Please enter a number with a decimal point");
+				alert("Your numer rounded down is " + Math.floor(num));
+			}
+			
+			// Math.max()
+			function max() {
+				var num1 = prompt("Please enter a number");
+				var num2 = prompt("Please enter another number");
+				alert("The bigger number of " + num1 + " and " + num2 + " is " + Math.max(num1,num2));
+			}
+			
+			// Math.min()
+			function min() {
+				var num1 = prompt("Please enter a number");
+				var num2 = prompt("Please enter another number");
+				alert("The smaller number of " + num1 + " and " + num2 + " is " + Math.min(num1,num2));
+			}
+			
+			// Math.pow()
+			function pow() {
+				var num = prompt("Please enter a number");
+				var power = prompt("Please enter a power");
+				alert("The number " + num + " to the " + power + " power is " + Math.pow(num, power));
+			}
+			
+			// Math.round()
+			function roundUp() {
+				var num = prompt("Please enter a number, preferably one with decimals");
+				alert("The number " + num + " rounded is " + Math.round(num));
+			}
+			
+			// Math.sqrt()
+			function square() {
+				var num = prompt("Please enter a number");
+				alert("the square root of the number " + num + " is " + Math.sqrt(num));
+			}
+			
 		</script>
 		
 	</body>

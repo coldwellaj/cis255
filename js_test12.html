@@ -35,7 +35,7 @@ http://www.w3schools.com/js/js_htmldom.asp
 		<script>
 			// document.write("Goodbye");
 			var obj = document.getElementById("js12");
-			obj.innerHTML = "Unordered list";
+			obj.innerHTML = "Ordered list";
 			obj.setAttribute("style","color: red;");
 			obj.setAttribute("onclick","alert('hey dude');");
 			obj2 = document.createElement("hr");
@@ -62,6 +62,18 @@ http://www.w3schools.com/js/js_htmldom.asp
 			// 1. add an ordered list (ol) with 5 list items (li) to the body. The list items should be animals: Alligator, Bat, Cat Dog, Elephant 
 			
 			// in class exercise
+			var ol = document.createElement("ol");
+			document.body.appendChild(ol);
+			li1.innerHTML = "Alligator";
+			li2.innerHTML = "Bat";
+			li3.innerHTML = "Dog";
+			li4.innerHTML = "Cat";
+			li5.innerHTML = "Elephant";
+			ol.appendChild(li1);
+			ol.appendChild(li2);
+			ol.appendChild(li3);
+			ol.appendChild(li4);
+			ol.appendChild(li5);
 			
 			// zebra stripe the unordered list
 			var current = ul.firstChild;
@@ -73,23 +85,23 @@ http://www.w3schools.com/js/js_htmldom.asp
 				else current = ns.nextSibling;
 			}
 
-			// Very Simple Animation
+			// 2. make the animation go from lower left to upper right (make the red box start from lower left!)
+			document.getElementById("animate").style.bottom = 0;
+			document.getElementById("animate").style.left = 0;
 			function myMove() {
 				var elem = document.getElementById("animate"); 
-				var pos = 350;
+				var pos = 0;
 				var id = setInterval(frame, 5);
 				function frame() {
-					if (pos == 0) {
+					if (pos == 350) {
 						clearInterval(id);
 					} else {
-						pos--; 
-						elem.style.top = pos + 'px'; 
+						pos++; 
+						elem.style.bottom = pos + 'px'; 
 						elem.style.left = pos + 'px'; 
 					}
 				}
 			}
-			
-			// 2. make the animation go from lower left to upper right (make the red box start from lower left!)
 		</script>
 
 	</body>

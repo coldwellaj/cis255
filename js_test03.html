@@ -17,6 +17,30 @@
 				document.write((i+1) + ". hello, world.<br />");
 			}
 			
+			// 2. while loop to print sum of the digits of the number 1234567890 (use mod operator (%))
+			var x = 1;
+			flag = -1;
+			var sum = 0;
+			while(flag != 0){
+				document.write("<br/>" + (x-1) + ". " + sum);
+				sum = sum + x;
+				x++;
+				if(x > 9)
+				flag = 0;
+			}
+			document.write("<br/>" + (x-1) + ". " + sum);
+			document.write("<br/>");
+			
+			// 3. do loop to print letters in the word "zippy" (string) one letter per line
+			x = 0;
+			var str = "zippy"
+			do {
+				document.write("<br/>" + str[x]);
+				x++;
+			}
+			while (x < str.length)
+			
+			
 		</script>
 		
 	</body>

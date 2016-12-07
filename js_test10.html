@@ -17,8 +17,25 @@ http://www.w3schools.com/js/js_events.asp
 			<button onclick="alert('123...');">hint</button>
 			<button id="button2">hint2</button>
 			<input type="submit" value="Submit" id="submit2"/>
+			<br/>
 		</form>
 
+		<!-- Dice and Keep dice check boxes -->
+		<button onclick="rollDice()">Role</button> <br/>
+		<p id="num1">0 </p>
+		<input type="checkbox" id="ck1"> Keep die 1
+		<p id="num2">0 </p>
+		<input type="checkbox" id="ck2"> Keep die 2
+		<p id="num3">0 </p>
+		<input type="checkbox" id="ck3"> Keep die 3
+		<p id="num4">0 </p>
+		<input type="checkbox" id="ck4"> Keep die 4
+		<p id="num5">0 </p>
+		<input type="checkbox" id="ck5"> Keep die 5
+		<p id="yahtzee">Output goes here<p>
+		
+		
+		
 		<script>
 			var x = document.getElementById("submit2");
 			x.value = "Zippydee"; 
@@ -33,21 +50,51 @@ http://www.w3schools.com/js/js_events.asp
 				// console.log(Math.floor(1 + 6 * Math.random())); 
 			};
 			
-			d1 = Math.floor(1 + 6 * Math.random()); 
-			d2 = Math.floor(1 + 6 * Math.random()); 
-			d3 = Math.floor(1 + 6 * Math.random()); 
-			d4 = Math.floor(1 + 6 * Math.random()); 
-			d5 = Math.floor(1 + 6 * Math.random()); 
-			
-			document.write(d1 + " " + d2 + " " + d3 + " " + d4 + " " + d5);
-			if(d1==d2 && d1==d3 && d1==d4 & d1==d5) 
-				document.write("<br />YAHTZEE");
-			else 
-				document.write("<br />Try again");
-
 			// your mission is let the user choose which dice to re-throw
 			// your program will be one additional attempt to get a yahtzee. 
 			
+			// Yahtzee roller game
+			var flag = false; // Preset for gameover
+			var tries = 0;    // preset counter
+			function rollDice() {
+				tries++;  // Up roll counter
+				if (flag == false){
+					d1 = Math.floor(1 + 6 * Math.random()); 
+					d2 = Math.floor(1 + 6 * Math.random()); 
+					d3 = Math.floor(1 + 6 * Math.random()); 
+					d4 = Math.floor(1 + 6 * Math.random()); 
+					d5 = Math.floor(1 + 6 * Math.random()); 
+				
+				
+					if (document.getElementById("ck1").checked == false){
+						document.getElementById("num1").innerHTML = d1;
+					}
+					if (document.getElementById("ck2").checked == false){
+						document.getElementById("num2").innerHTML = d2;
+					}
+					if (document.getElementById("ck3").checked == false){
+						document.getElementById("num3").innerHTML = d3;
+					}
+					if (document.getElementById("ck4").checked == false){
+						document.getElementById("num4").innerHTML = d4;
+					}
+					if (document.getElementById("ck5").checked == false){
+						document.getElementById("num5").innerHTML = d5;
+					}
+				}
+				
+				
+				if(d1==d2 && d1==d3 && d1==d4 & d1==d5) 
+					document.getElementById("yahtzee").innerHTML = "YAHTZEE!!";
+				else 
+					document.getElementById("yahtzee").innerHTML = "Try again";
+				
+				// Check for game over
+				if(tries == 2){
+					alert("You've rolled twice please reload page to play again!"); // Alert player
+					flag = true; // set flag for gameover
+				}
+			}
 		</script>
 		
 	</body>

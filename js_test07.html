@@ -4,7 +4,7 @@
 <html>
 	
 	<body>
-		<label>Enter a number</label>
+		<label>Enter a Canadian province</label>
 		<input type="text" id="in01" onkeyup="isProvince();" />
 		<br />
 		
@@ -42,7 +42,58 @@
 	
 			// write a function to test whether or not the input is a legit province of CANADA. Output should be "Province" or "Not a Province"
 			
-			function inProvince() {
+			function isProvince() {
+			var x = document.getElementById("in01").value;
+			x = x.toLowerCase();
+			x = x.replace(/\s+/g, '');
+			console.log(x);
+			var flag = false;
+			switch(x) {
+				case "alberta":
+				flag = true;
+				break;
+				case "britishcolumbia":
+				flag = true;
+				break;
+				case "manitoba":
+				flag = true;
+				break;
+				case "newbrunwick":
+				flag = true;
+				break;
+				case "newfoundlandandlabrador":
+				flag = true;
+				break;
+				case "nothwestterritories":
+				flag = true;
+				break;
+				case "novascotia":
+				flag = true;
+				break;
+				case "nunavut":
+				flag = true;
+				break;
+				case "ontario":
+				flag = true;
+				break;
+				case "princeedwardisland":
+				flag = true;
+				break;
+				case "quebec":
+				flag = true;
+				break;
+				case "saskatchewan":
+				flag = true;
+				break;
+				case "yukon":
+				flag = true;
+				break;
+				default:
+				flag = false;
+			}
+			
+			if(flag == true) document.getElementById("out01").innerHTML = "Province";
+				else document.getElementById("out01").innerHTML = "Not a Province";
 			}
 
 			

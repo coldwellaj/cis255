@@ -4,8 +4,9 @@
 <html>
 	
 	<body>
-		<label>Enter a number</label>
-		<input type="text" id="in01" onkeyup="myArrayFun();" />
+		<p>Please enter a number</p>
+		<button type="button" onclick="runLoop()" />Click to run function array</button>
+		<input type="value" id="input01"/>
 		<br />
 		
 		<p id="out01">Output goes here</p>
@@ -46,7 +47,75 @@
 			// for 3  extra credit points create an array contains 5 functions, add2(), subtract4(), mod5, power3(), toString()
 			// write a function to loop through the array of functions and append text nodes to a paragraph <p> in the DOM which contain the output of a parameter
 			
-			function loopThruArrayOfFunctions (param) {
+			function runLoop() {
+				var input = document.getElementById("input01").value;
+				loopThruArrayOfFunctions(input);
+			}
+			
+			function loopThruArrayOfFunctions (num) {
+				var arr = [];
+				arr[0] = function add2(num) {
+					num = parseInt(num);
+					console.log(num);
+					num += 2;
+					console.log(num);
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Add 2: " + num);
+					node.appendChild(textnode);
+					document.getElementById("out01").appendChild(node);
+					return num;
+				}
+				
+				arr[1] = function subtract4(num) {
+					console.log(num);
+					num = parseInt(num);
+					console.log(num);
+					num -= 4;
+					console.log(num);
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Subtract 4: " + num);
+					node.appendChild(textnode);
+					document.getElementById("out01").appendChild(node);
+					return num;
+				}
+				
+				arr[2] = function mod5(num) {
+					num = parseInt(num);
+					num = num % 5;
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Mod 5: " + num);
+					node.appendChild(textnode);
+					document.getElementById("out01").appendChild(node);
+					return num;
+				}
+				
+				arr[3] = function power3(num) {
+					num = parseInt(num);
+					num = Math.pow(num,3);
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Power 3: " + num);
+					node.appendChild(textnode);
+					document.getElementById("out01").appendChild(node);
+					return num;
+				}
+				
+				arr[4] = function toString(num) {
+					num = String(num);
+					var node = document.createElement("LI");
+					var textnode = document.createTextNode("Pushed to string: " + num);
+					node.appendChild(textnode);
+					document.getElementById("out01").appendChild(node);
+					return num;
+				}
+				
+				var node = document.createElement("LI");
+				var textnode = document.createTextNode("Original number" + num);
+				node.appendChild(textnode);
+				document.getElementById("out01").appendChild(node);
+				
+				for (var x = 0; x < arr.length; x++) {
+					num = arr[x](num);
+				}
 			}
 			
 		</script>
